@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lion Facts</title>
+    <style>
+        body {
+            background-color: #FFA500; /* Orange theme */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #FF4500; /* Darker orange */
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF6347; /* Lighter orange on hover */
+        }
+
+        /* Add additional styles for icons and animations */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lion Facts</h1>
+        <p id="factDisplay"></p>
+        <button id="newFactButton">Show Random Fact</button>
+        <button id="shareButton">Share on WhatsApp</button>
+        <div class="icons">
+            <!-- Add icon images here -->
+        </div>
+    </div>
+    <script>
+        const facts = {
+            "fact1": "Lions are the only big cats that live in groups, known as prides.",
+            "fact2": "A pride can consist of up to 30 lions, including several related females and their cubs.",
+            "fact3": "Male lions are easily recognized by their majestic manes, which can vary in color and size.",
+            "fact4": "Lions are social animals, and they often groom each other to strengthen social bonds.",
+            "fact5": "The roar of a lion can be heard from up to 5 miles away.",
+            "fact6": "Lions are apex predators and primarily hunt at night, using teamwork to take down prey.",
+            "fact7": "Female lions do most of the hunting for the pride, while males protect the territory.",
+            "fact8": "A lion's diet mainly consists of large herbivores such as zebras, wildebeests, and buffalo.",
+            "fact9": "Lions can run at speeds of up to 50 miles per hour, but only for short distances.",
+            "fact10": "Cubs are born with spots on their fur, which fade as they grow older.",
+            "fact11": "Lions can sleep for up to 20 hours a day to conserve energy for hunting.",
+            "fact12": "The average lifespan of a lion in the wild is around 10 to 14 years.",
+            "fact13": "In captivity, lions can live up to 20 years or more due to the absence of threats.",
+            "fact14": "Lions are found in Africa and a small population exists in the Gir Forest of India.",
+            "fact15": "The lion is often referred to as the 'King of the Jungle,' although they actually live in savannas and grasslands."
+        };
+
+        document.getElementById('newFactButton').addEventListener('click', displayRandomFact);
+        document.getElementById('shareButton').addEventListener('click', shareOnWhatsApp);
+
+        function displayRandomFact() {
+            const factKeys = Object.keys(facts);
+            const randomKey = factKeys[Math.floor(Math.random() * factKeys.length)];
+            document.getElementById('factDisplay').innerText = facts[randomKey];
+            // Add subtle animation here
+        }
+
+        function shareOnWhatsApp() {
+            const fact = document.getElementById('factDisplay').innerText;
+            const url = `https://wa.me/?text=${encodeURIComponent(fact)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
